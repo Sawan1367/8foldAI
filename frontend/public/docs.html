@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Research Assistant - Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin: 0.5rem 0.25rem;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 1.875rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: #764ba2;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .section h4 {
+            font-size: 1.25rem;
+            color: #475569;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-card li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #dc2626;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .persona-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .persona-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .persona-card h4 {
+            color: #1e293b;
+            margin: 0.5rem 0;
+        }
+
+        .persona-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .architecture-diagram {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        ul,
+        ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+            padding: 1rem;
+            border-left: 4px solid #f59e0b;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .feature-grid,
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Company Research Assistant</h1>
+            <p>AI-Powered Intelligent Research & Account Planning</p>
+            <div>
+                <span class="badge">React 18</span>
+                <span class="badge">Python 3.8+</span>
+                <span class="badge">Flask 3.0</span>
+                <span class="badge">Gemini AI</span>
+                <span class="badge">v2.0.0</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Overview Section -->
+            <div class="section">
+                <h2>📖 Overview</h2>
+                <p>An intelligent, conversation-aware AI assistant designed to help you research companies and generate
+                    strategic account plans. Built with a focus on exceptional conversational quality and adaptive user
+                    experiences.</p>
+            </div>
+
+            <!-- Key Features Section -->
+            <div class="section">
+                <h2>🌟 Key Features</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>💬 Conversational Intelligence</h4>
+                        <ul>
+                            <li>Persona Detection</li>
+                            <li>Context-Aware Responses</li>
+                            <li>Intent Classification</li>
+                            <li>Smart Clarification</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>🤖 Agentic Behavior</h4>
+                        <ul>
+                            <li>Proactive Suggestions</li>
+                            <li>Multi-Turn Conversations</li>
+                            <li>Reference Resolution</li>
+                            <li>Goal Tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>🎨 User Experience</h4>
+                        <ul>
+                            <li>Interactive Onboarding</li>
+                            <li>Voice Assistant</li>
+                            <li>Typing Indicators</li>
+                            <li>Customizable Preferences</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>⚙️ Technical Excellence</h4>
+                        <ul>
+                            <li>Robust Error Handling</li>
+                            <li>Input Validation</li>
+                            <li>Session Management</li>
+                            <li>Graceful Degradation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Personas Section -->
+            <div class="section">
+                <h2>🎭 Adaptive User Personas</h2>
+                <p>The system automatically detects and adapts to different user types:</p>
+
+                <div class="persona-grid">
+                    <div class="persona-card">
+                        <div class="persona-icon">❓</div>
+                        <h4>Confused User</h4>
+                        <p>Needs guidance and examples. Gets step-by-step help with patient, encouraging responses.</p>
+                    </div>
+
+                    <div class="persona-card">
+                        <div class="persona-icon">⚡</div>
+                        <h4>Efficient User</h4>
+                        <p>Wants quick results. Receives minimal, action-focused responses (1 sentence max).</p>
+                    </div>
+
+                    <div class="persona-card">
+                        <div class="persona-icon">💬</div>
+                        <h4>Chatty User</h4>
+                        <p>Likes conversation. Gets natural engagement while staying focused on tasks.</p>
+                    </div>
+
+                    <div class="persona-card">
+                        <div class="persona-icon">⚠️</div>
+                        <h4>Edge Case User</h4>
+                        <p>Tests boundaries. Receives clear error messages with helpful alternatives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start Section -->
+            <div class="section">
+                <h2>🚀 Quick Start</h2>
+
+                <h3>Prerequisites</h3>
+                <ul>
+                    <li>Node.js 18+ and npm</li>
+                    <li>Python 3.8+</li>
+                    <li>Gemini API key or Perplexity API key</li>
+                </ul>
+
+                <h3>Installation</h3>
+
+                <h4>1. Backend Setup</h4>
+                <pre><code>cd backend
+
+# Create virtual environment
+python -m venv EightfoldAI
+
+# Activate virtual environment
+.\EightfoldAI\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure API key in .env file
+# Add: GEMINI_API_KEY=your_key_here</code></pre>
+
+                <h4>2. Frontend Setup</h4>
+                <pre><code>cd frontend
+npm install</code></pre>
+
+                <h4>3. Start the Application</h4>
+                <pre><code># Use PowerShell script
+.\start_app.ps1
+
+# Or manually:
+# Terminal 1 - Backend
+cd backend
+python app.py
+
+# Terminal 2 - Frontend
+cd frontend
+npm run dev</code></pre>
+
+                <h4>4. Access the Application</h4>
+                <ul>
+                    <li>Frontend: <code>http://localhost:5173</code></li>
+                    <li>Backend API: <code>http://localhost:5000</code></li>
+                </ul>
+            </div>
+
+            <!-- Architecture Section -->
+            <div class="section">
+                <h2>🏗️ Architecture</h2>
+
+                <div class="architecture-diagram">
+                    ┌─────────────────────────────────────────────┐<br>
+                    │ Frontend (React + Vite) │<br>
+                    │ ┌──────────┐ ┌──────────┐ ┌──────────┐ │<br>
+                    │ │Onboarding│ │ChatPanel │ │ Voice │ │<br>
+                    │ │ Flow │ │+Suggest. │ │Assistant │ │<br>
+                    │ └──────────┘ └──────────┘ └──────────┘ │<br>
+                    └─────────────────────────────────────────────┘<br>
+                    ↕ HTTP/JSON<br>
+                    ┌─────────────────────────────────────────────┐<br>
+                    │ Backend (Flask + Python) │<br>
+                    │ ┌──────────┐ ┌──────────┐ ┌──────────┐ │<br>
+                    │ │Conversation│ │ Input │ │ Error │ │<br>
+                    │ │ Manager │ │Validator │ │ Handler │ │<br>
+                    │ └──────────┘ └──────────┘ └──────────┘ │<br>
+                    │ ┌──────────────────────────────────────┐ │<br>
+                    │ │ Enhanced LLM (Persona-Adaptive) │ │<br>
+                    │ └──────────────────────────────────────┘ │<br>
+                    │ ┌──────────┐ ┌──────────┐ │<br>
+                    │ │SQLite DB │ │Search API│ │<br>
+                    │ └──────────┘ └──────────┘ │<br>
+                    └─────────────────────────────────────────────┘
+                </div>
+
+                <h3>Key Components</h3>
+
+                <h4>Backend Modules</h4>
+                <ul>
+                    <li><strong>conversation_manager.py</strong> - Session tracking, persona detection, intent
+                        classification</li>
+                    <li><strong>input_validator.py</strong> - Edge case handling, input validation</li>
+                    <li><strong>error_handler.py</strong> - Retry logic with exponential backoff</li>
+                    <li><strong>llm_enhanced.py</strong> - Persona-adaptive AI responses</li>
+                    <li><strong>routes_enhanced.py</strong> - Enhanced API endpoints</li>
+                </ul>
+
+                <h4>Frontend Components</h4>
+                <ul>
+                    <li><strong>OnboardingFlow.jsx</strong> - Interactive tutorial</li>
+                    <li><strong>ChatPanel.jsx</strong> - Enhanced chat with suggestions</li>
+                    <li><strong>VoiceAssistant.jsx</strong> - Voice interaction</li>
+                    <li><strong>AccountPlanPanel.jsx</strong> - Data visualization</li>
+                </ul>
+            </div>
+
+            <!-- API Endpoints Section -->
+            <div class="section">
+                <h2>🔌 API Endpoints</h2>
+
+                <h4>POST /api/chat</h4>
+                <p>Enhanced chat with conversation context</p>
+                <pre><code>{
+  "prompt": "Research Google",
+  "session_id": "session_123",
+  "companies": [],
+  "preferences": {
+    "verbosity": "balanced",
+    "voiceEnabled": true
+  }
+}</code></pre>
+
+                <h4>Other Endpoints</h4>
+                <ul>
+                    <li><code>POST /api/suggestions</code> - Get contextual suggestions</li>
+                    <li><code>GET /api/conversation/:session_id</code> - Retrieve conversation history</li>
+                    <li><code>POST /api/conversation/clear</code> - Clear conversation history</li>
+                    <li><code>POST /api/preferences</code> - Update user preferences</li>
+                    <li><code>POST /api/validate</code> - Validate input before processing</li>
+                    <li><code>GET /api/health</code> - Health check</li>
+                </ul>
+            </div>
+
+            <!-- Demo Scenarios Section -->
+            <div class="section">
+                <h2>🎬 Demo Scenarios</h2>
+
+                <h3>Scenario 1: The Confused User ❓</h3>
+                <div class="highlight">
+                    <strong>User:</strong> "I need help"<br>
+                    <strong>System:</strong> "I'd be happy to help! I can research companies and create account plans.
+                    Would you like to: • Research a specific company • See what I can do • Get help with company
+                    research"
+                </div>
+
+                <h3>Scenario 2: The Efficient User ⚡</h3>
+                <div class="highlight">
+                    <strong>User:</strong> "Research Microsoft"<br>
+                    <strong>System:</strong> "Researched Microsoft."<br><br>
+                    <strong>User:</strong> "Update revenue to $200B"<br>
+                    <strong>System:</strong> "Updated."
+                </div>
+
+                <h3>Scenario 3: The Chatty User 💬</h3>
+                <div class="highlight">
+                    <strong>User:</strong> "Hey! How are you today? I'm thinking about researching some companies"<br>
+                    <strong>System:</strong> "I'm doing great, thanks for asking! I'd be happy to help you research
+                    companies. Which company would you like to start with?"
+                </div>
+
+                <h3>Scenario 4: The Edge Case User ⚠️</h3>
+                <div class="highlight">
+                    <strong>User:</strong> "asdfghjkl"<br>
+                    <strong>System:</strong> "I didn't quite understand that. Could you rephrase your request? For
+                    example, you can say 'Research Google' or 'Help me get started'."
+                </div>
+            </div>
+
+            <!-- Design Decisions Section -->
+            <div class="section">
+                <h2>💡 Key Design Decisions</h2>
+
+                <h3>Why Persona Detection?</h3>
+                <p>Different users have different communication styles. By detecting whether a user is confused,
+                    efficient, chatty, or encountering edge cases, we can adapt our responses to provide the best
+                    experience for each individual.</p>
+
+                <h3>Why Conversation Context?</h3>
+                <p>Users naturally refer to previous topics ("update it", "that company"). Without context, the
+                    assistant would constantly ask for clarification, creating friction.</p>
+
+                <h3>Why Input Validation?</h3>
+                <p>Edge cases and invalid inputs can break the user experience. Proactive validation allows us to
+                    provide helpful guidance before wasting API calls.</p>
+
+                <h3>Why SQLite?</h3>
+                <p>For this application, SQLite provides the perfect balance of zero configuration, portability, and
+                    sufficient performance for conversation history.</p>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>Ready to Get Started?</h2>
+                <p>Experience the power of AI-driven company research with adaptive, intelligent conversations.</p>
+                <a href="/" class="cta-button">Launch Application →</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
