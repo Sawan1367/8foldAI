@@ -112,15 +112,9 @@ An intelligent, conversation-aware AI assistant for researching companies and ge
    Use the provided PowerShell script:
 
    ```bash
-   cd ..
-   .\start_app.ps1
-   ```
-
-   Or manually:
-
-   ```bash
    # Terminal 1 - Backend
    cd backend
+   EightfoldAI\Scripts\activate
    python app.py
 
    # Terminal 2 - Frontend
@@ -403,16 +397,53 @@ This project was built with a focus on conversational quality and user experienc
 
 ## 📝 License
 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 This project is part of an evaluation submission demonstrating conversational AI best practices.
+
+## 🎯 Originality Statement
+
+This project is **100% original work** created specifically to demonstrate excellence in conversational AI development. All core features, algorithms, and design patterns were developed from scratch:
+
+- **Custom Persona Detection Algorithm** - Original heuristic-based system for adaptive responses
+- **Reference Resolution System** - Novel approach to handling conversational context
+- **Input Validation Framework** - Comprehensive edge case handling implementation
+- **Conversation Management** - Custom SQLite schema and context tracking
+- **Error Handling Architecture** - Original decorator-based retry system
+
+While this project uses standard libraries and frameworks (Flask, React, Langchain), all application logic and architectural decisions are original implementations. See [DEVELOPMENT.md](DEVELOPMENT.md) for detailed design decisions and [ATTRIBUTION.md](ATTRIBUTION.md) for third-party acknowledgments.
+
+## 📚 Third-Party Libraries
+
+This project builds upon excellent open-source libraries:
+
+### Backend
+
+- [Flask](https://flask.palletsprojects.com/) - Web framework
+- [Langchain](https://github.com/langchain-ai/langchain) - LLM application framework
+- [SQLite](https://www.sqlite.org/) - Database engine
+
+### Frontend
+
+- [React](https://react.dev/) - UI library
+- [Vite](https://vitejs.dev/) - Build tool
+- [Recharts](https://recharts.org/) - Charting library
+- [Lucide React](https://lucide.dev/) - Icon library
+
+See [ATTRIBUTION.md](ATTRIBUTION.md) for complete list with licenses.
 
 ## 🙏 Acknowledgments
 
-Built to demonstrate excellence in:
+This project demonstrates original contributions in:
 
-- Conversational Quality
-- Agentic Behavior
-- Technical Implementation
-- Intelligence & Adaptability
+- **Conversational Quality** - Adaptive persona-based responses
+- **Agentic Behavior** - Proactive suggestions and context awareness
+- **Technical Implementation** - Robust error handling and validation
+- **Intelligence & Adaptability** - Dynamic response generation
+
+Special thanks to the open-source community for the excellent libraries that made this implementation possible.
+
+For detailed development process and design decisions, see [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ---
 

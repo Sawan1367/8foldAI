@@ -256,7 +256,7 @@ export default function App() {
               <button
                 onClick={handleGenerateBestPlan}
                 disabled={isGeneratingBestPlan}
-                className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-sm font-medium text-white shadow-sm hover:shadow-md transition disabled:opacity-50"
+                className="cursor-pointer px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-sm font-medium text-white shadow-sm hover:shadow-md transition disabled:opacity-50"
               >
                 {isGeneratingBestPlan ? "Generating..." : "Generate Best Plan"}
               </button>
